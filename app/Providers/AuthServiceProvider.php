@@ -30,21 +30,14 @@ class AuthServiceProvider extends ServiceProvider
 
         Passport::routes();
 
-//        Gate::define('moderator', function (User $user) {
-//            return $user->isModerator();
-//        });
+
         Gate::define('administrator', function (User $user) {
             return $user->isAdmin() || $user->isModerator();
         });
 
 
-
-        // TODO RM
-        Gate::define('premium', function (User $user) {
-            return $user->isPremium();
-        });
         Gate::define('user', function (User $user) {
-            return $user->isUser();
+            return $user->isPremium() || $user->isUser();
         });
     }
 }

@@ -14,6 +14,12 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" href="{{ route('home') }}">
+            <span class="menu-title">Главная</span>
+            <i class="mdi mdi-home-account menu-icon"></i>
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="{{ route('users.index') }}">
             <span class="menu-title">Пользователи</span>
             <i class="mdi mdi-human-handsup menu-icon"></i>

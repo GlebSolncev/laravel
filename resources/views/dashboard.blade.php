@@ -1,4 +1,4 @@
-@extends('admin')
+@extends('layouts.app')
 
 @section('content')
     <div class="content-wrapper">
@@ -81,13 +81,6 @@
                                                 <i class="mdi mdi-lead-pencil mdi-24px"></i>
                                             </a>
                                         </td>
-                                        {{--<td>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-gradient-success" role="progressbar"
-                                                     style="width: 25%" aria-valuenow="25" aria-valuemin="0"
-                                                     aria-valuemax="100"></div>
-                                            </div>
-                                        </td>--}}
                                     </tr>
                                 @endforeach
                                 </tbody>

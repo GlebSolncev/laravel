@@ -16,6 +16,12 @@ class User extends Authenticatable
     const ROLE_MODERATOR = 3;
     const ROLE_ADMINISTRATOR = 4;
 
+    public static $rules = array(
+        'name'=>'required|min:2',
+        'email'=>'required|min:5',
+        'password'=> 'required|min:2',
+    );
+
     /**
      * The attributes that are mass assignable.
      *
@@ -43,11 +49,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+    public function first_created()
+    {
+        return \Carbon\Carbon::parse($this->created_at)->format('d M Y H:i');
+    }
+    
+    # CHECKER ROLE
+    
     public function role()
     {
         return $this->belongsTo('App\Models\Role', 'role_id', 'id');
     }
 
+    
     public function isAdmin(): bool
     {
         return $this->role->id === self::ROLE_ADMINISTRATOR;

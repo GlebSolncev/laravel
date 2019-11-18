@@ -12,18 +12,26 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')
-            ->insert([
-                [
-                    'id' => 1,
-                    'role_id' => 1,
-                    'name' => 'Gleb',
-                    'email' => 'qwe111@qwe.qwe',
-                    'email_verified_at' => date('Y-m-d H:i:s'),
-                    'password' => \Illuminate\Support\Facades\Hash::make('qweqwe'),
+        $collection[] =[
+            'id' => 1,
+            'role_id' => 4,
+            'name' => 'Gleb',
+            'email' => 'qwe111@qwe.qwe',
+            'email_verified_at' => date('Y-m-d H:i:s'),
+            'password' => \Illuminate\Support\Facades\Hash::make('qweqwe'),
+        ];
+        for($i=2; $i < 100; $i++):
+            $collection[] = [
+                'id' => $i,
+                'role_id' => rand(1, 4),
+                'name' => 'Клиент #'.$i,
+                'email' => "client$i@gmail.com",
+                'email_verified_at' => date('Y-m-d H:i:s'),
+                'password' => \Illuminate\Support\Facades\Hash::make("qwe$i"),
+            ];
+        endfor;
 
-                ],
-            ]);
+        DB::table('users')->insert($collection);
     }
 
 }

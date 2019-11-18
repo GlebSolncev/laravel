@@ -33,9 +33,7 @@ class HomeController extends Controller
         $visition = Component::query()->where('name', '=', 'visition_home')->first('value');
         $visition = (int) optional($visition)->value;
 
-
-
-        return view('admin.dashboard',
+        return view('dashboard',
             compact('me', 'users', 'videos', 'visition')
         );
     }

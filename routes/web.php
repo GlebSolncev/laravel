@@ -23,8 +23,7 @@ Route::group(['prefix' => 'admin',
     function () {
         Route::get('/home', 'HomeController@index')->name('home');
         Route::resource('/users', 'UserAdminController');
+        Route::get('/users/{id}/premium', 'UserAdminController@premium')->name('users.premium');
+
     }
 );
-
-
-

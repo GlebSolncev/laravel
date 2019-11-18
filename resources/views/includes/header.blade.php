@@ -64,7 +64,10 @@
             </div>
         </li>
         <li class="nav-item nav-logout d-none d-lg-block">
-            <a class="nav-link" href="#">
+            <form action="{{ route('logout') }}" data-click="logout" method="post">
+                @csrf
+            </form>
+            <a class="nav-link" onclick="event.preventDefault();$('form').submit();">
                 <i class="mdi mdi-power"></i>
             </a>
         </li>
